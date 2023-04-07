@@ -1,13 +1,16 @@
 import java.util.Random;
 
 public class Dice {
-    int max = 6;
-    //int lowestPossibleNumber = numOfDies;
-    int timesThrown = 0;
+    int maxNum;
+    int minNum;
+    Bins bin;
     int numOfDice = 0;
 
     public Dice(int numOfDice) {
         this.numOfDice = numOfDice;
+        this.maxNum = numOfDice * 6;
+        this.minNum = numOfDice;
+        this.bin = new Bins();
     }
 
     public int tossAndSum() {
@@ -18,11 +21,8 @@ public class Dice {
             ran = random.nextInt(6) + 1;
             result += ran;
         }
+        bin.incrementBin(result);
         return result;
-    }
-
-    public int randomDieResult() {
-        return 0;
     }
 
 }
